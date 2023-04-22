@@ -1,0 +1,1 @@
+tengo un problema para mostrar las img, no me toma el acceso al la propiedad im del objeto.. la cosa era que no tuve encuenta que habia objetos que no tenian la propiedad solicitada

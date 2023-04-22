@@ -16,21 +16,21 @@
 <body>
     <div id="app">
         <header>
-            <h1 class="text-center my-5">The Simpsons seasons and episodes</h1>
+            <h1 class="text-center my-5">The Simpsons: seasons and episodes</h1>
         </header>
         <main>
             <div class="row">
                 <!-- ver si dejar el index -->
-                <div class="col-md-4" v-for="season in seasons">
+                <div class="col-md-4" v-for="(season,index,key) in seasons" :key = "season.id">
                     <div class="card season-card">
         
-                        <img :src="seasons[1].image.medium" class="card-img-top" :alt="season.number" >
+                        <img :src="season.image? season.image.original :'https://www.1zoom.me/big/93/70372-andross.jpg'" class="img-fluid" :alt="season.number" >
                         <div class="card-body">
                             <h5 class="card-title">Season: {{ season.number }}</h5>
-                            <p class="card-text">Estreno: {{ season.premiereDate}}</p>
-                            <p class="card-text">Episodes: {{ season.episodeOrder}}</p>
+                            <p class="card-text">Premiere: {{ season.premiereDate? season.premiereDate: "not available" }}</p>
+                            <p class="card-text">Episodes: {{ season.episodeOrder? season.episodeOrder: "not available"}}</p>
                             <!-- button -->
-                            <button class="btn btn-primary" v-on:click="showEpisodes(index)">Mostrar episodios</button>
+                            <button class="btn btn-primary" v-on:click="showEpisodes(index)">Show episodes</button>
                         </div>
                     </div>
                 </div>
