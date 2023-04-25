@@ -1,0 +1,21 @@
+.season-card {
+    background-color: #F5B941;
+    margin: 20px;
+    width: 300px;
+    height: 400px;
+}
+.season-card img, .episode-card img {
+    height: 55%;
+    object-fit:cover;
+    
+}
+
+
+
+
+.episode-card {
+    background-color: #F5B941;
+    margin: 20px;
+    width: 400px;
+    height: 200px;
+}

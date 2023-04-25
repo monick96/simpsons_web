@@ -1,0 +1,5 @@
+tengo un problema para mostrar las img, no me toma el acceso al la propiedad im del objeto.. la cosa era que no tuve encuenta que habia objetos que no tenian la propiedad solicitada
+ 25/4
+hacer una nueva pagina para mostrar los episodios
+ya que no me funciona el v if.
+ tratar de sacar la etiqueta p de los summary
