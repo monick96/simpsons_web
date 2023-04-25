@@ -4,7 +4,7 @@
     width: 300px;
     height: 400px;
 }
-.season-card img {
+.season-card img, .episode-card img {
     height: 55%;
     object-fit:cover;
     

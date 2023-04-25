@@ -6,8 +6,9 @@ const app = createApp({
             url_api_episodes: 'https://api.tvmaze.com/shows/83/episodes',
             seasons: [],
             episodes: [],
-            selectedSeason:null,
-            modalVisible: false, //propiedad de datos para controlar la visibilidad del modal
+            selectedEpisodes:[],
+            selectedSeason:[],
+            //modalVisible: false, //propiedad de datos para controlar la visibilidad del modal
 
         }
     },
@@ -24,28 +25,18 @@ const app = createApp({
         let res = await fetch(this.url_api_seasons)
         seasons= await res.json();
         this.seasons = seasons
-            // console.log(seasons);
-            // console.log(seasons[0].image.medium)
-
-            // for (el of seasons) {
-            //     console.log(typeof (el.number));
-            // }
-
 
         },
-        obtein_episodes() {
-            fetch(this.url_api_episodes)
-                .then(resp => resp.json())
-                .then(episodes => {
-                    this.episodes = episodes
+        async obtein_episodes() {
+            let resp = await fetch(this.url_api_episodes)
+            let episodes= await resp.json()
+            this.episodes = episodes
                     // console.log(episodes);
                     // console.log(episodes[0].image.medium)
 
                     // for (el of episodes) {
                     //     console.log(typeof (el.number));
                     // }
-
-                })
 
         },
         // showEpisodes (index) {
@@ -60,10 +51,10 @@ const app = createApp({
         //     console.log(target);
         //     console.log(collapse_element);
         // },
-        showEpisodes(seasonIndex){
-            this.selectedSeason = this.seasons[seasonIndex];
-            this.selectedEpisodes = this.episodes[seasonIndex];
-            console.log(seasonIndex);
+        showEpisodes(seasonNumber){
+            this.selectedSeason = this.seasons.find(season=>season.number === seasonNumber);
+            this.selectedEpisodes = this.episodes.filter(ep =>ep.season === seasonNumber)
+            console.log(seasonNumber);
             
             this.modalVisible = true; // establecer la propiedad modalVisible en true
 
@@ -71,5 +62,8 @@ const app = createApp({
         
 
     },
-    computed: {}
+    computed: {
+
+
+    }
 }).mount('#app')
