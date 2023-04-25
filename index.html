@@ -21,46 +21,58 @@
         <main>
             <div class="row">
                 <!-- ver si dejar el index -->
-                <div class="col-md-4" v-for="(season,index,key) in seasons" :key = "season.id">
+                <div class="col-md-4" v-for="(season,seasonIndex) in seasons" :key="season.id">
                     <div class="card season-card">
-        
-                        <img :src="season.image? season.image.original :'https://www.1zoom.me/big/93/70372-andross.jpg'" class="img-fluid" :alt="season.number" >
+
+                        <img :src="season.image? season.image.original :'https://www.1zoom.me/big/93/70372-andross.jpg'"
+                            class="img-fluid" :alt="season.number">
                         <div class="card-body">
                             <h5 class="card-title">Season: {{ season.number }}</h5>
-                            <p class="card-text">Premiere: {{ season.premiereDate? season.premiereDate: "not available" }}</p>
+                            <p class="card-text">Premiere: {{ season.premiereDate? season.premiereDate: "not available"}}</p>
                             <p class="card-text">Episodes: {{ season.episodeOrder? season.episodeOrder: "not available"}}</p>
                             <!-- button -->
-                            <button class="btn btn-primary" v-on:click="showEpisodes(index)">Show episodes</button>
+                            <button class="btn btn-primary" @click="showEpisodes(seasonIndex)">Show episodes</button>
+                            <!-- show episodes -->
+                            <!-- <div class="collapse show" :id="'season' + index">
+                                <ul class="list-group mt-2">
+                                    <li class="list-group-item" v-for="(episode) in episodes"
+                                        :key="episode.id">
+                                        <h6>{{ episode.name ? episode.name: "not available" }}</h6>
+                                        <p>{{ episode.summary ? episode.summary: "not available" }}</p>
+                                    </li>
+                                </ul>
+                            </div> -->
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- modal
+            <!-- modal -->
+
+
             <div v-if="modalVisible" class="modal fade" tabindex="-1" role="dialog">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="episodeModalLabel">Episodios de la temporada {{
-                                selectedSeason.number }}</h5>
+                            <h5 class="modal-title" id="episodeModalLabel">Episodios de la temporada {{selectedSeason.number}}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-md-6" v-for="(episode, index) in selectedSeason.episodes">
+                            <div class="col-md-6" v-for="(episode, index) in selectedEpisodes">
                                 <div class="card episode-card">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ episode.title }}</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">{{ episode.air_date }}</h6>
-                                        <p class="card-text">{{ episode.description }}</p>
+                                        <h5 class="card-title">{{ episode.name? episode.name: "not available"}}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">{{ episode.airdate? episode.airdate: "not available" }}</h6>
+                                        <p class="card-text">{{ episode.summary? episode.summary: "not available" }}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
         </main>
         <footer>
