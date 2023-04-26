@@ -1,32 +1,45 @@
 body{
-    background-image: url("https://w0.peakpx.com/wallpaper/966/453/HD-wallpaper-springfield-los-simpson-simpsons-springfield-the.jpg");
-    
+    background-image: url("https://images.pexels.com/photos/281260/pexels-photo-281260.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    object-fit: cover;    
 }
+.cssFont_1 {
+    font-family: Comic Sans MS;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    font-weight: bolder;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: uppercase;
+    font-style: oblique;
+    }
+
 h1, .yellow{
-    font-size: 5 rem;
-    font-weight: bold;
+    font-size: 5.5 rem;
     color: yellow;
     text-shadow: 12px 8px 8px #00002C;;
     text-align: center;
 }
-.navbar-brand{
-    background-color: rgba(240, 248, 255, 0.01);
+.navbar{
+    background-color: #080808da;
 }
+
 .nav-item a{
     font-weight: bold;
-    background: #CE288F;
-    background: -moz-linear-gradient(left, #CE288F 0%, #9F89A4 100%, #C5A7AF 100%);
-    background: -webkit-linear-gradient(left, #CE288F 0%, #9F89A4 100%, #C5A7AF 100%);
-    background: linear-gradient(to right, #CE288F 0%, #9F89A4 100%, #C5A7AF 100%);
 
 }
+a.navbar-brand {
+    font-size: 1rem;
+}
 .navbar-brand img{
-    width: 4rem;
+    width: 2rem;
     border-radius: 50%;
+}
+main.episodes{
+    margin-top: 5rem;
 }
 
 .season-card {
-    background-color: #F5B941;
     margin: 20px;
     width: 300px;
     height: 400px;
@@ -36,12 +49,13 @@ h1, .yellow{
     object-fit:cover;
     
 }
-
+.episode-card, .season-card {
+    background-color: rgb(249, 249, 25);
+}
 
 
 
 .episode-card {
-    background-color: #e5ab36ba;
     margin: 20px;
     width: 400px;
     height: 500px;
