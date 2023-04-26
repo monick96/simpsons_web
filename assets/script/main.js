@@ -5,7 +5,7 @@ const app = createApp({
             url_api_seasons: 'https://api.tvmaze.com/shows/83/seasons',
             url_api_episodes: 'https://api.tvmaze.com/shows/83/episodes',
             seasons: [],
-            //episodes: [],
+            episodes: [],
             selectedEpisodes:[],
             season:null,
             
@@ -44,26 +44,32 @@ const app = createApp({
             let resp = await fetch(this.url_api_episodes)
             let episodes= await resp.json()
             this.episodes = episodes
+            //from the database came with html tags that appeared in the summary with this I remove it
+            this.episodes = this.episodes.map((episode) => {
+                if (episode.summary) {
+                    return {
+                        ...episode,
+                        summary: episode.summary.replace(/<\/?[^>]+(>|$)/g, "")
+                    };
+                } else {
+                    return episode;
+                }
+            });
+            // with this I get the episodes of the season selected with the show episodes link button
+            //What I did was to assign the link that leads to the episodes page to the season variable of the link, 
+            //the season. number of seasons, then with the URLsearchparams I capture that variable and compare it with 
+            //the episode.number to see if the episode corresponds to the season
+            
             if (this.season != null){
                 this.selectedEpisodes = this.episodes.filter(ep=>ep.season ==  this.season)
                 console.log(this.selectedEpisodes);
             }
-                    // console.log(episodes);
-                    // console.log(episodes[0].image.medium)
 
-                // for (el of episodes) {
-                //         console.log(typeof (el.season));
-                // }
+                
 
         }
 
     },
     computed: {
-        // filteredEpisodes(){
-        //     if (this.season != ''){
-        //         this.selectedEpisodes = this.episodes.filter(ep=>ep.season === this.season)
-        //         console.log(this.selectedEpisodes);
-        //     }
-        // }
     }
 }).mount('#app')

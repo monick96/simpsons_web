@@ -23,12 +23,11 @@
             <div class="row">
                 <div class="col-md-6" v-for="(episode, index) in selectedEpisodes">
                     <div class="card episode-card">
-                        <img :src="episode.image? episode.image.original :'https://www.1zoom.me/big/93/70372-andross.jpg'"
-                class="img-fluid" :alt="episode.number">
+                        <img :src="episode.image? episode.image.original :'https://www.1zoom.me/big/93/70372-andross.jpg'" class="img-fluid" :alt="episode.number">
                         <div class="card-body">
-                            <h5 class="card-title">{{  episode.number? episode.number: "not available" - episode.name? episode.name: "not available"}}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{{ episode.airdate? episode.airdate: "not available" }}</h6>
-                            <p class="card-text">{{ episode.summary? episode.summary: "not available" }}</p>
+                            <h5 class="card-title">{{  episode.number? episode.number: "not available"}} - {{episode.name? episode.name: "not available"}}</h5>
+                            <h6 class="card-subtitle mb-2"><b>Episode air date:</b> {{ episode.airdate? episode.airdate: "not available" }}</h6>
+                            <p class="card-text"><b>Resume:</b> {{ episode.summary? episode.summary: "not available" }}</p>
                         </div>
                     </div>
                 </div>
