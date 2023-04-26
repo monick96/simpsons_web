@@ -1,3 +1,30 @@
+body{
+    background-image: url("https://w0.peakpx.com/wallpaper/966/453/HD-wallpaper-springfield-los-simpson-simpsons-springfield-the.jpg");
+    
+}
+h1, .yellow{
+    font-size: 5 rem;
+    font-weight: bold;
+    color: yellow;
+    text-shadow: 12px 8px 8px #00002C;;
+    text-align: center;
+}
+.navbar-brand{
+    background-color: rgba(240, 248, 255, 0.01);
+}
+.nav-item a{
+    font-weight: bold;
+    background: #CE288F;
+    background: -moz-linear-gradient(left, #CE288F 0%, #9F89A4 100%, #C5A7AF 100%);
+    background: -webkit-linear-gradient(left, #CE288F 0%, #9F89A4 100%, #C5A7AF 100%);
+    background: linear-gradient(to right, #CE288F 0%, #9F89A4 100%, #C5A7AF 100%);
+
+}
+.navbar-brand img{
+    width: 4rem;
+    border-radius: 50%;
+}
+
 .season-card {
     background-color: #F5B941;
     margin: 20px;
@@ -14,8 +41,8 @@
 
 
 .episode-card {
-    background-color: #F5B941;
+    background-color: #e5ab36ba;
     margin: 20px;
     width: 400px;
-    height: 200px;
+    height: 500px;
 }

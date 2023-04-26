@@ -16,12 +16,42 @@
 <body>
     <div id="app">
         <header>
-            <h1 class="text-center my-5">The Simpsons: seasons and episodes</h1>
-            <a href="./index.html">home</a>
+            <nav class="navbar navbar-expand-lg fixed-top">
+                <div class="container">
+                    <a class="navbar-brand" href="./index.html"><img src="https://p4.wallpaperbetter.com/wallpaper/512/98/384/the-simpsons-homer-simpson-cartoons-pink-wallpaper-preview.jpg" alt="logo-dona"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./index.html">Home</a>
+                            </li>
+                            <!-- Other navigation links -->
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- <h3 class="text-center my-2 yellow"><a href="./index.html">home</a></h3> -->
+            <h1 class="text-center my-4">The Simpsons: season {{season}}</h1>
+            <h2 class="text-center my-2 yellow"> Episodes</h2>
         </header>
         <main>
+            <div class="row">
+                <div class="col-md-6" v-for="(episode, index) in selectedEpisodes">
+                    <div class="card episode-card">
+                        <img :src="episode.image? episode.image.original :'https://www.1zoom.me/big/93/70372-andross.jpg'" class="img-fluid" :alt="episode.number">
+                        <div class="card-body">
+                            <h5 class="card-title">{{  episode.number? episode.number: "not available"}} - {{episode.name? episode.name: "not available"}}</h5>
+                            <h6 class="card-subtitle mb-2"><b>Episode air date:</b> {{ episode.airdate? episode.airdate: "not available" }}</h6>
+                            <p class="card-text"><b>Resume:</b> {{ episode.summary? episode.summary: "not available" }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-
+            
         </main>
         <footer>
             <!-- place footer here -->

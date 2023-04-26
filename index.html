@@ -16,7 +16,7 @@
 <body>
     <div id="app">
         <header>
-            <h1 class="text-center my-5">The Simpsons: seasons and episodes</h1>
+            <h1 class="text-center my-4">The Simpsons: seasons</h1>
         </header>
         <main>
             <div class="row">
@@ -31,40 +31,14 @@
                             <p class="card-text">Premiere: {{ season.premiereDate? season.premiereDate: "not available"}}</p>
                             <p class="card-text">Episodes: {{ season.episodeOrder? season.episodeOrder: "not available"}}</p>
                             <!-- button -->
-                            <button class="btn btn-primary" @click="showEpisodes(season.number)">Show episodes</button>
+                            <!-- <button class="btn btn-primary" @click="showEpisodes(season.number)">Show episodes</button> -->
+                            <a class="btn btn-primary" :href="'./episodes.html?season='+season.number">Show episodes</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- modal -->
-
-
-            <!-- <div v-if="modalVisible" class="modal fade" tabindex="-1" role="dialog"> -->
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="episodeModalLabel">Episodios de la temporada {{selectedSeason.number}}</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6" v-for="(episode, index) in selectedEpisodes">
-                                <div class="card episode-card">
-                                    <img :src="episode.image? episode.image.original :'https://www.1zoom.me/big/93/70372-andross.jpg'"
-                            class="img-fluid" :alt="episode.number">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ episode.name? episode.name: "not available"}}</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">{{ episode.airdate? episode.airdate: "not available" }}</h6>
-                                        <p class="card-text">{{ episode.summary? episode.summary: "not available" }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <!-- </div> -->
+            
 
         </main>
         <footer>
