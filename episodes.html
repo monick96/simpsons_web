@@ -40,8 +40,11 @@
         </header>
         <main class="episodes">
             <div class="row">
-                <h1 class="text-center my-8 cssFont_1">The Simpsons: season {{season}}</h1>
-                <h2 class="text-center my-8 yellow cssFont_1"> Episodes</h2>
+                <div class="title">
+                    <h1 class="text-center my-8 cssFont_1">The Simpsons: season {{season}}</h1>
+                    <h2 class="text-center my-8 yellow cssFont_1 mt-3"> Episodes</h2>
+                </div>
+                
                 <div class="row" v-if="selectedEpisodes.length > 0">
                     <div class="col-md-4 d-flex justify-content-center" v-for="(episode, index) in selectedEpisodes">
                         <div class="card episode-card">

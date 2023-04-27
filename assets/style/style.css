@@ -1,6 +1,10 @@
 body{
     background-image: url("https://images.pexels.com/photos/281260/pexels-photo-281260.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-    object-fit: cover;    
+    /* object-fit: cover;*/
+    background-size: cover;
+}
+div.title{
+    background-color: rgba(0, 0, 0, 0.358);
 }
 .cssFont_1 {
     font-family: Comic Sans MS;
@@ -36,7 +40,7 @@ a.navbar-brand {
     border-radius: 50%;
 }
 main.episodes{
-    margin-top: 5rem;
+    margin-top: 3.5rem;
 }
 
 .season-card {
