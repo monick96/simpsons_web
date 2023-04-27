@@ -42,14 +42,22 @@
             <div class="row">
                 <h1 class="text-center my-8 cssFont_1">The Simpsons: season {{season}}</h1>
                 <h2 class="text-center my-8 yellow cssFont_1"> Episodes</h2>
-                <div class="col-md-4 d-flex justify-content-center" v-for="(episode, index) in selectedEpisodes">
-                    <div class="card episode-card">
-                        <img :src="episode.image? episode.image.original :'https://www.1zoom.me/big/93/70372-andross.jpg'" class="img-fluid" :alt="episode.number">
-                        <div class="card-body">
-                            <h5 class="card-title">{{  episode.number? episode.number: "not available"}} - {{episode.name? episode.name: "not available"}}</h5>
-                            <h6 class="card-subtitle mb-2"><b>Episode air date:</b> {{ episode.airdate? episode.airdate: "not available" }}</h6>
-                            <p class="card-text"><b>Resume:</b> {{ episode.summary? episode.summary: "not available" }}</p>
+                <div class="row" v-if="selectedEpisodes.length > 0">
+                    <div class="col-md-4 d-flex justify-content-center" v-for="(episode, index) in selectedEpisodes">
+                        <div class="card episode-card">
+                            <img :src="episode.image? episode.image.original :'https://www.1zoom.me/big/93/70372-andross.jpg'" class="img-fluid" :alt="episode.number">
+                            <div class="card-body">
+                                <h5 class="card-title">{{  episode.number? episode.number: "not available"}} - {{episode.name? episode.name: "not available"}}</h5>
+                                <h6 class="card-subtitle mb-2"><b>Episode air date:</b> {{ episode.airdate? episode.airdate: "not available" }}</h6>
+                                <p class="card-text"><b>Resume:</b> {{ episode.summary? episode.summary: "not available" }}</p>
+                            </div>
                         </div>
+                    </div>
+                </div>
+                <div v-else>
+                    <div class="msj d-flex justify-content-center align-items-center flex-column mt-5">
+                        <img src="https://fotografias.lasexta.com/clipping/cmsimages02/2017/11/12/722DD0B7-3582-4FE6-BC2B-0CE99BF7F26F/58.jpg" alt="Homer Simpson">
+                        <h3 class="text-center my-3">Episodes not yet available...</h3>
                     </div>
                 </div>
             </div>
