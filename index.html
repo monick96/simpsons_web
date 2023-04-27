@@ -6,6 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="https://cdn.icon-icons.com/icons2/1583/PNG/512/thesimpson_108050.png" type="image/x-icon">
 
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -16,20 +17,33 @@
 <body>
     <div id="app">
         <header>
-            <h1 class="text-center my-4">The Simpsons: seasons</h1>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container">
+                    <a class="navbar-brand" href="https://www.linkedin.com/in/monica-melgarejo-esquivel-2b1b39164/"> <i>created by </i><img src="https://img.icons8.com/doodle/256/linkedin--v2.png" alt="logo"></a>
+                    <form class="form-inline ml-auto" @submit.prevent="filterSeasons">
+                        <div class="input-group">
+                            <input class="form-control" type="search" placeholder="Search Season" aria-label="Search" v-model="text">
+
+                            <span class="input-group-btn">
+                                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                            </span>
+                            {{filterSeasons}}
+                        </div>
+                    </form>
+                </div>
+            </nav>
         </header>
         <main>
-            <div class="row">
-                <!-- ver si dejar el index -->
-                <div class="col-md-4" v-for="(season,seasonIndex) in seasons" :key="season.id">
+            <div class="row align-items-center ">
+                <h1 class="text-center my-4 cssFont_1">The Simpsons: seasons</h1>
+                <div class="col-md-4 d-flex justify-content-center" v-for="(season,seasonIndex) in seasons" :key="season.id">
                     <div class="card season-card">
-
                         <img :src="season.image? season.image.original :'https://www.1zoom.me/big/93/70372-andross.jpg'"
                             class="img-fluid" :alt="season.number">
-                        <div class="card-body">
-                            <h5 class="card-title">Season: {{ season.number }}</h5>
-                            <p class="card-text">Premiere: {{ season.premiereDate? season.premiereDate: "not available"}}</p>
-                            <p class="card-text">Episodes: {{ season.episodeOrder? season.episodeOrder: "not available"}}</p>
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><b>Season:</b> {{ season.number }}</h5>
+                            <p class="card-text"><b>Premiere:</b> {{ season.premiereDate? season.premiereDate: "not available"}}</p>
+                            <p class="card-text"><b>Episodes:</b> {{ season.episodeOrder? season.episodeOrder: "not available"}}</p>
                             <!-- button -->
                             <!-- <button class="btn btn-primary" @click="showEpisodes(season.number)">Show episodes</button> -->
                             <a class="btn btn-primary" :href="'./episodes.html?season='+season.number">Show episodes</a>
@@ -37,9 +51,13 @@
                     </div>
                 </div>
             </div>
-
+            <div v-show="!seasons.length">
+                <div class="msj d-flex justify-content-center align-items-center flex-column mt-5 ">
+                    <img src="https://www.latercera.com/resizer/O-EcdOnoFwgTqR3m3jcmTMHZ6FU=/800x0/smart/arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/VLT3T7D25VDSROGCIGWIT2RNGU.gif" alt="Homer Simpson">
+                    <h3 class="text-center my-3">No results found...</h3>
+                </div>
+            </div>
             
-
         </main>
         <footer>
             <!-- place footer here -->

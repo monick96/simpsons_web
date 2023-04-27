@@ -2,4 +2,8 @@ tengo un problema para mostrar las img, no me toma el acceso al la propiedad im 
  25/4
 hacer una nueva pagina para mostrar los episodios
 ya que no me funciona el v if.
- tratar de sacar la etiqueta p de los summary
+ tratar de sacar la etiqueta p de los summary : ok,
+ funcion que si no hay ningun episodio en una temporada me devela un estamos trabajando en la carda de los episodios.
+ agreagar un buscador para seasons,ok
+
+ agregar una pagina que muestre todos los episodios y filtre por temporada, ? es basicamente lo que ya hago 

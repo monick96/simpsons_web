@@ -5,9 +5,11 @@ const app = createApp({
             url_api_seasons: 'https://api.tvmaze.com/shows/83/seasons',
             url_api_episodes: 'https://api.tvmaze.com/shows/83/episodes',
             seasons: [],
+            backupSeasons: [],
             episodes: [],
             selectedEpisodes:[],
             season:null,
+            text:'',
             
 
         }
@@ -32,6 +34,7 @@ const app = createApp({
         let res = await fetch(this.url_api_seasons)
         seasons= await res.json();
         this.seasons = seasons
+        this.backupSeasons= this.seasons
         // Get season number from query parameter
         let params= new URLSearchParams(location.search)
         this.season = params.get('season')
@@ -71,5 +74,10 @@ const app = createApp({
 
     },
     computed: {
+        filterSeasons(){
+            this.seasons = this.backupSeasons.filter((season)=> { 
+                return season.number.toString().toLowerCase().includes(this.text.toLowerCase());
+            }) 
+        }
     }
 }).mount('#app')
