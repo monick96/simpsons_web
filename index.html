@@ -35,7 +35,10 @@
         </header>
         <main>
             <div class="row align-items-center ">
-                <h1 class="text-center my-4 cssFont_1">The Simpsons: seasons</h1>
+                <div class="title">
+                    <h1 class="text-center my-4 cssFont_1">The Simpsons: seasons</h1>
+                </div>
+                
                 <div class="col-md-4 d-flex justify-content-center" v-for="(season,seasonIndex) in seasons" :key="season.id">
                     <div class="card season-card">
                         <img :src="season.image? season.image.original :'https://www.1zoom.me/big/93/70372-andross.jpg'"
